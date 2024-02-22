@@ -1,0 +1,44 @@
+{
+  "name": "quasar_project_demo",
+  "version": "0.0.1",
+  "description": "a quasar project",
+  "productName": "celep",
+  "author": "ssule <ssulecelepp@gmail.com>",
+  "private": true,
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 0",
+    "dev": "quasar dev",
+    "build": "quasar build"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.16.4",
+    "@quasar/quasar-ui-qcalendar": "^4.0.0-beta.19",
+    "@schedule-x/theme-default": "^1.17.1",
+    "@schedule-x/vue": "^1.13.1",
+    "apexcharts": "^3.46.0",
+    "core-js": "^3.31.1",
+    "quasar": "^2.8.0",
+    "vue": "^3.2.29",
+    "vue-router": "^4.0.12",
+    "vue3-apexcharts": "^1.5.2"
+  },
+  "devDependencies": {
+    "@quasar/app-webpack": "^3.9.2"
+  },
+  "browserslist": [
+    "last 10 Chrome versions",
+    "last 10 Firefox versions",
+    "last 4 Edge versions",
+    "last 7 Safari versions",
+    "last 8 Android versions",
+    "last 8 ChromeAndroid versions",
+    "last 8 FirefoxAndroid versions",
+    "last 10 iOS versions",
+    "last 5 Opera versions"
+  ],
+  "engines": {
+    "node": "^20 || ^18 || ^16",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  }
+}
