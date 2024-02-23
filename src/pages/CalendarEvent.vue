@@ -1,7 +1,9 @@
 <template>
   <div class="subcontent">
-    <navigation-bar :today="onToday" :prev="onPrev" :next="onNext" />
-
+    <!-- <navigation-bar :today="onToday" :prev="onPrev" :next="onNext" /> -->
+    <q-btn flat dense label="Today" class="q-mx-md" @click="setToday"></q-btn>
+    <q-btn flat dense round icon="keyboard_arrow_left" @click="onPrev"></q-btn>
+    <q-btn flat dense round icon="keyboard_arrow_right" @click="onNext"></q-btn>
     <div class="row justify-center">
       <div style="display: flex; max-width: 800px; width: 100%">
         <q-calendar-month
@@ -58,19 +60,22 @@ import {
 import "@quasar/quasar-ui-qcalendar/src/QCalendarVariables.sass";
 import "@quasar/quasar-ui-qcalendar/src/QCalendarTransitions.sass";
 import "@quasar/quasar-ui-qcalendar/src/QCalendarMonth.sass";
-import { computed } from "vue";
-import NavigationBar from "./NavigationBar.vue";
+import { computed, ref } from "vue";
+//import NavigationBar from "./NavigationBar.vue";
 
 // The function below is used to set up our demo data
 const CURRENT_DAY = new Date();
+const ay= today().split('-')[1];
+console.log("ay", today().split('-')[1]); //today()'den gelen bugünün tarihinden ayı çekiyorum
 function getCurrentDay(day) {
+  
   const newDay = new Date(CURRENT_DAY);
   newDay.setDate(day);
   const tm = parseDate(newDay);
   return tm.date;
-}
+};
 
-const selectedDate = today();
+const selectedDate = ref('');
 const events = [
   {
     id: 1,
@@ -207,14 +212,20 @@ const badgeStyles = (day, event) => {
   // s.width = (event.days * this.parsedCellWidth) + '%'
   return s;
 };
-
+// onToday onPrev ve onNext düzenlenecek
 const onToday = () => {
+  //selectedDate.value=today();
   calendar.moveToToday();
 };
 const onPrev = () => {
-  calendar.prev();
+  const date= today();
+  const split = today().split("-")[1];
+  const newDate =date.split("-")[1]= date.split("-")[0]+"-0"+(parseInt(split)+1).toString()+"-"+date.split("-")[2];
+  console.log("newDate", newDate);
+  selectedDate.value=newDate;
 };
 const onNext = () => {
+  
   calendar.next();
 };
 const onMoved = (data) => {

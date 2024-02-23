@@ -48,10 +48,45 @@
         <q-list padding>
           <q-item to="/" exact clickable v-ripple>
             <q-item-section avatar>
-              <q-icon name="list" />
+              <q-icon name="app_registration" />
             </q-item-section>
 
             <q-item-section> Todo </q-item-section>
+          </q-item>
+
+          
+
+          <q-item to="/chart" exact clickable v-ripple>
+            <q-item-section avatar>
+              
+              <q-icon name="leaderboard" />
+            </q-item-section>
+
+            <q-item-section> Chart </q-item-section>
+          </q-item>
+
+          <q-item to="/calendarMonth" exact clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="calendar_today" />
+            </q-item-section>
+
+            <q-item-section> Calendar Month </q-item-section>
+          </q-item>
+
+          <q-item to="/cl" exact clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="date_range" />
+            </q-item-section>
+
+            <q-item-section> Calender Ornek </q-item-section>
+          </q-item>
+
+          <q-item to="/calendarEvent" exact clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="event" />
+            </q-item-section>
+
+            <q-item-section> Calender Event </q-item-section>
           </q-item>
 
           <q-item to="/help" exact clickable v-ripple>
@@ -60,38 +95,6 @@
             </q-item-section>
 
             <q-item-section> Help </q-item-section>
-          </q-item>
-
-          <q-item to="/chart" exact clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon name="help" />
-            </q-item-section>
-
-            <q-item-section> Chart </q-item-section>
-          </q-item>
-
-          <q-item to="/calendarMonth" exact clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon name="help" />
-            </q-item-section>
-
-            <q-item-section> Calendar Month </q-item-section>
-          </q-item>
-
-          <q-item to="/cl" exact clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon name="help" />
-            </q-item-section>
-
-            <q-item-section> Calender Ornek </q-item-section>
-          </q-item>
-
-          <q-item to="/calendarEvent" exact clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon name="help" />
-            </q-item-section>
-
-            <q-item-section> Calender Event </q-item-section>
           </q-item>
         </q-list>
       </q-scroll-area>
