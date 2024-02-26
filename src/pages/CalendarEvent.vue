@@ -1,9 +1,9 @@
 <template>
   <div class="subcontent">
-    <!-- <navigation-bar :today="onToday" :prev="onPrev" :next="onNext" /> -->
-    <q-btn flat dense label="Today" class="q-mx-md" @click="setToday"></q-btn>
+    <navigation-bar :today="onToday" :prev="onPrev" :next="onNext" />
+    <!-- <q-btn flat dense label="Today" class="q-mx-md" @click="setToday"></q-btn>
     <q-btn flat dense round icon="keyboard_arrow_left" @click="onPrev"></q-btn>
-    <q-btn flat dense round icon="keyboard_arrow_right" @click="onNext"></q-btn>
+    <q-btn flat dense round icon="keyboard_arrow_right" @click="onNext"></q-btn> -->
     <div class="row justify-center">
       <div style="display: flex; max-width: 800px; width: 100%">
         <q-calendar-month
@@ -51,17 +51,22 @@
 <script setup>
 import {
   QCalendarMonth,
- 
+  next,
+  prev,
+  moveToToday,
   addToDate,
   parseDate,
   parseTimestamp,
   today,
 } from "@quasar/quasar-ui-qcalendar/src/index.js";
-import "@quasar/quasar-ui-qcalendar/src/QCalendarVariables.sass";
-import "@quasar/quasar-ui-qcalendar/src/QCalendarTransitions.sass";
-import "@quasar/quasar-ui-qcalendar/src/QCalendarMonth.sass";
+
+ import "@quasar/quasar-ui-qcalendar/src/QCalendarVariables.sass";
+ import "@quasar/quasar-ui-qcalendar/src/QCalendarTransitions.sass";
+ import "@quasar/quasar-ui-qcalendar/src/QCalendarMonth.sass";
 import { computed, ref } from "vue";
-//import NavigationBar from "./NavigationBar.vue";
+import NavigationBar from "./NavigationBar.vue";
+const calendar = ref();
+
 
 // The function below is used to set up our demo data
 const CURRENT_DAY = new Date();
@@ -215,18 +220,22 @@ const badgeStyles = (day, event) => {
 // onToday onPrev ve onNext düzenlenecek
 const onToday = () => {
   //selectedDate.value=today();
-  calendar.moveToToday();
+  moveToToday();
+
+  
 };
 const onPrev = () => {
-  const date= today();
-  const split = today().split("-")[1];
-  const newDate =date.split("-")[1]= date.split("-")[0]+"-0"+(parseInt(split)+1).toString()+"-"+date.split("-")[2];
-  console.log("newDate", newDate);
-  selectedDate.value=newDate;
+  prev();
+
+  // const date= today();
+  // const split = today().split("-")[1];
+  // const newDate =date.split("-")[1]= date.split("-")[0]+"-0"+(parseInt(split)+1).toString()+"-"+date.split("-")[2];
+  // console.log("newDate", newDate);
+  // selectedDate.value=newDate;
 };
 const onNext = () => {
-  
-  calendar.next();
+
+  next();
 };
 const onMoved = (data) => {
   console.log("onMoved", data);

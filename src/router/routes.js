@@ -11,6 +11,7 @@ const routes = [
       { path: '/cl', component: () => import('pages/CalendarOrnek.vue') },
       { path: '/calendarMonth', component: () => import('pages/CalendarMonth.vue') },
       { path: '/calendarEvent', component: () => import('pages/CalendarEvent.vue') },
+      { path: '/takvim', component: () => import('pages/Takvim.vue') },
     ]
   },
 
